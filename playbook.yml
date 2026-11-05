@@ -1,6 +1,7 @@
 - name: Deploy Java Application to Kubernetes Cluster
   hosts: localhost
   connection: local
+  gather_facts: true
   tasks:
     - name: Ensure Kubernetes manifests directory exists
       ansible.builtin.file:
@@ -13,7 +14,7 @@
       changed_when: "'configured' in k8s_apply.stdout or 'created' in k8s_apply.stdout"
 
     - name: Verify Kubernetes pods are running
-      ansible.builtin.command: kubectl get pods -l app=java-app
+      ansible.builtin.command: kubectl get pods -l app=java-app-deployment
       register: k8s_pods
       changed_when: false
 

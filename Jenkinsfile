@@ -54,7 +54,7 @@ pipeline {
                     sh "az login -u ${AZ_USER} -p ${AZ_PASS} --service-principal --tenant YOUR_TENANT_ID || az login --use-device-code"
                     sh "az aks get-credentials --resource-group JavaAppRG3 --name JavaAksCluster --overwrite-existing"
                     sh "sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml"
-                    sh 'kubectl apply -f k8s/'
+                    sh "ansible-playbook playbook.yml"
                 }
             }
         }

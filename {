@@ -40,4 +40,99 @@ To https://github.com/RishabRajeev/JavaPipelineCalculator.git
 Counting objects:  20% (1/5)Counting objects:  40% (2/5)Counting objects:  60% (3/5)Counting objects:  80% (4/5)Counting objects: 100% (5/5)Counting objects: 100% (5/5), done.
 Delta compression using up to 12 threads
 Compressing objects:  33% (1/3)Compressing objects:  66% (2/3)Compressing objects: 100% (3/3)Compressing objects: 100% (3/3), done.
-Writing objects:  33% (1/3)Writing objects:  66% (2/3)Writing objects: 100% (3/3)Writing objects: 100% (3/3), 524 byt
+Writing objects:  33% (1/3)Writing objects:  66% (2/3)Writing objects: 100% (3/3)Writing objects: 100% (3/3), 524 bytes | 524.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/RishabRajeev/JavaPipelineCalculator.git
+   4599987..5c06438  main -> main
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git push origin maincommit -m "Updated Jenkinsfile2"add .[K
+[?2004l[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git add .push origin maincommit -m "Updated Jenkinsfile2"[1P"3"
+[?2004l[main 3addaf7] Updated Jenkinsfile3
+ 2 files changed, 49 insertions(+), 6 deletions(-)
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git commit -m "Updated Jenkinsfile3"add .[Kpush origin main
+[?2004lEnumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 1.54 KiB | 1.54 MiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/RishabRajeev/JavaPipelineCalculator.git
+   5c06438..3addaf7  main -> main
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mkubectl get pods -l app=java-calculator[27mkubectl get pods -l app=java-calculator
+[?2004lNo resources found in default namespace.
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mkubectl get svc[27mkubectl get svc
+[?2004lNAME               TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
+java-app-service   LoadBalancer   10.0.204.253   4.187.140.228   80:31954/TCP   139m
+kubernetes         ClusterIP      10.0.0.1       <none>          443/TCP        148m
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mkubectl get pods --all-namespaces[27mkubectl get pods --all-namespaces
+[?2004lNAMESPACE     NAME                                             READY   STATUS    RESTARTS   AGE
+default       java-app-deployment-cfb5ffbc6-6zfzp              1/1     Running   0          4m4s
+default       java-app-deployment-cfb5ffbc6-gfmmk              1/1     Running   0          4m5s
+kube-system   azure-cns-wzdkg                                  2/2     Running   0          149m
+kube-system   azure-ip-masq-agent-p8vrr                        1/1     Running   0          149m
+kube-system   cloud-node-manager-fk5wv                         1/1     Running   0          149m
+kube-system   coredns-5bf45f87d-g7wdh                          1/1     Running   0          150m
+kube-system   coredns-5bf45f87d-wkshs                          1/1     Running   0          148m
+kube-system   coredns-autoscaler-7467554f77-wr4cp              1/1     Running   0          150m
+kube-system   csi-azuredisk-node-lwdpt                         3/3     Running   0          149m
+kube-system   csi-azurefile-node-btz48                         4/4     Running   0          149m
+kube-system   konnectivity-agent-69f54595cd-fq9m6              1/1     Running   0          90m
+kube-system   konnectivity-agent-69f54595cd-vv4sg              1/1     Running   0          90m
+kube-system   konnectivity-agent-autoscaler-5b658f6697-b9n8d   1/1     Running   0          149m
+kube-system   kube-proxy-twzk5                                 1/1     Running   0          149m
+kube-system   metrics-server-dff79fd46-nv8t4                   2/2     Running   0          148m
+kube-system   metrics-server-dff79fd46-s8f7s                   2/2     Running   0          148m
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ kubectl get pods --all-namespacessvc[Kpods -l app=java-calculatorsvc[Kpods -l app=java-calculator
+[?2004lNo resources found in default namespace.
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mcurl -I http://4.187.140.228[27mcurl -I http://4.187.140.228
+[?2004lHTTP/1.1 403 Forbidden
+[1mConnection[0m: close
+[1mContent-Type[0m: text/html
+[1mCache-Control[0m: no-cache
+[1mX-Frame-Options[0m: SAMEORIGIN
+[1mX-XSS-Protection[0m: 1; mode=block
+[1mX-Content-Type-Options[0m: nosniff
+[1mContent-Security-Policy[0m: frame-ancestors 'self'
+[1mContent-Length[0m: 0
+
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mkubectl logs deployment/java-app-deployment --tail=50[27mkubectl logs deployment/java-app-deployment --tail=50
+[?2004lFound 2 pods, using pod/java-app-deployment-cfb5ffbc6-gfmmk
+05-Nov-2026 08:33:33.165 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.61
+05-Nov-2026 08:33:33.177 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 6 2026 22:56:25 UTC
+05-Nov-2026 08:33:33.178 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.61.0
+05-Nov-2026 08:33:33.180 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+05-Nov-2026 08:33:33.180 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            6.8.0-1073-azure
+05-Nov-2026 08:33:33.182 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+05-Nov-2026 08:33:33.182 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/java/openjdk
+05-Nov-2026 08:33:33.182 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.21+9
+05-Nov-2026 08:33:33.182 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+05-Nov-2026 08:33:33.183 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+05-Nov-2026 08:33:33.183 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+05-Nov-2026 08:33:33.198 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+05-Nov-2026 08:33:33.199 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+05-Nov-2026 08:33:33.200 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+05-Nov-2026 08:33:33.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+05-Nov-2026 08:33:33.201 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.io.useCanonCaches=false
+05-Nov-2026 08:33:33.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+05-Nov-2026 08:33:33.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+05-Nov-2026 08:33:33.202 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang.reflect=ALL-UNNAMED
+05-Nov-2026 08:33:33.204 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+05-Nov-2026 08:33:33.204 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+05-Nov-2026 08:33:33.204 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+05-Nov-2026 08:33:33.204 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+05-Nov-2026 08:33:33.205 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+05-Nov-2026 08:33:33.205 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+05-Nov-2026 08:33:33.205 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+05-Nov-2026 08:33:33.209 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.16] using APR version [1.7.6].
+05-Nov-2026 08:33:33.213 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.5.5 27 Jan 2026]
+05-Nov-2026 08:33:33.906 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+05-Nov-2026 08:33:34.007 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1240] milliseconds
+05-Nov-2026 08:33:34.091 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+05-Nov-2026 08:33:34.091 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.61]
+05-Nov-2026 08:33:34.130 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [/usr/local/tomcat/webapps/ROOT.war]
+05-Nov-2026 08:33:34.948 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [/usr/local/tomcat/webapps/ROOT.war] has finished in [817] ms
+05-Nov-2026 08:33:34.961 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+05-Nov-2026 08:33:35.002 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [989] milliseconds
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mkubectl port-forward svc/java-app-service 8080:80[27mkubectl port-forward svc/java-app-service 8080:80
+[?2004lUnable to listen on port 8080: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 127.0.0.1:8080: bind: address already in use unable to create listener: Error listen tcp6 [::1]:8080: bind: addres
