@@ -5,7 +5,6 @@ pipeline {
         ACR_REGISTRY = 'rishabjavaapp123.azurecr.io'
         IMAGE_NAME   = 'rishabjavaapp123.azurecr.io/java-web-app'
         IMAGE_TAG    = "${env.BUILD_NUMBER}"
-        // Store your ACR credentials using Jenkins Credentials binding or environment
     }
     
     stages {
@@ -55,7 +54,7 @@ pipeline {
                     export LANG=C.UTF-8
                     export LC_ALL=C.UTF-8
                     
-                    az login -u ${AZ_USER} -p ${AZ_PASS} --service-principal --tenant YOUR_TENANT_ID || az login --use-device-code
+                    az login -u ${AZ_USER} -p ${AZ_PASS} --service-principal --tenant 5beb351c-3fb8-418f-b612-fe36ace96ef3 || az login --use-device-code
                     az aks get-credentials --resource-group JavaAppRG3 --name JavaAksCluster --overwrite-existing
                     sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml
                     ansible-playbook playbook.yml
