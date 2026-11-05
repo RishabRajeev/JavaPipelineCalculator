@@ -47,18 +47,18 @@ pipeline {
             }
         }
         
-        stage('6. Deploy to Azure Kubernetes Service') {
+        stage('6. Deploy to Azure AKS via Ansible') {
             steps {
-                    withCredentials([usernamePassword(credentialsId: 'azure-acr-credentials', usernameVariable: 'AZ_USER', passwordVariable: 'AZ_PASS')]) {
-                sh """
-                    export LANG=C.UTF-8
-                    export LC_ALL=C.UTF-8
-                    
-                    az login -u ${AZ_USER} -p ${AZ_PASS} --service-principal --tenant 5beb351c-3fb8-418f-b612-fe36ace96ef3 || az login --use-device-code
-                    az aks get-credentials --resource-group JavaAppRG3 --name JavaAksCluster --overwrite-existing
-                    sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml
-                    ansible-playbook playbook.yml
-                """
+                withCredentials([usernamePassword(credentialsId: 'azure-acr-credentials', usernameVariable: 'AZ_USER', passwordVariable: 'AZ_PASS')]) {
+                    sh """
+                        export LANG=C.UTF-8
+                        export LC_ALL=C.UTF-8
+                        
+                        az login -u ${AZ_USER} -p ${AZ_PASS} --service-principal --tenant 5beb351c-3fb8-418f-b612-fe36ace96ef3
+                        az aks get-credentials --resource-group JavaAppRG3 --name JavaAksCluster --overwrite-existing
+                        sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml
+                        ansible-playbook playbook.yml
+                    """
                 }
             }
         }
