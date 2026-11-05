@@ -1,0 +1,9 @@
+node_modules
+target
+.git
+.gitignore
+Jenkinsfile
+ansible
+k8s
+*.iml
+.idea
