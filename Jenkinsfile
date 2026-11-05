@@ -5,7 +5,7 @@ pipeline {
         ACR_REGISTRY = 'rishabjavaapp123.azurecr.io'
         IMAGE_NAME   = 'rishabjavaapp123.azurecr.io/java-web-app'
         IMAGE_TAG    = "${env.BUILD_NUMBER}"
-        ACR_CREDS_ID = 'azure-acr-credentials' 
+        // Store your ACR credentials using Jenkins Credentials binding or environment
     }
     
     stages {
@@ -34,20 +34,16 @@ pipeline {
         
         stage('4. Build Docker Image') {
             steps {
-                script {
-                    // Corrected docker.build syntax
-                    app = docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
-                }
+                sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest ."
             }
         }
         
         stage('5. Push to Azure Container Registry') {
             steps {
-                script {
-                    docker.withRegistry("https://${ACR_REGISTRY}", "${ACR_CREDS_ID}") {
-                        app.push("${IMAGE_TAG}")
-                        app.push("latest")
-                    }
+                withCredentials([usernamePassword(credentialsId: 'azure-acr-credentials', usernameVariable: 'ACR_USER', passwordVariable: 'ACR_PASS')]) {
+                    sh "echo $ACR_PASS | docker login ${ACR_REGISTRY} -u $ACR_USER --password-stdin"
+                    sh "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
+                    sh "docker push ${IMAGE_NAME}:latest"
                 }
             }
         }
@@ -56,7 +52,7 @@ pipeline {
             steps {
                 script {
                     sh "sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml"
-                    sh 'ansible-playbook playbook.yml'
+                    sh 'kubectl apply -f k8s/'
                 }
             }
         }
