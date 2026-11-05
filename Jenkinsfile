@@ -50,14 +50,14 @@ pipeline {
         
         stage('6. Deploy to Azure Kubernetes Service') {
             steps {
-            withCredentials([azureServicePrincipal('azure-credentials')]) {
-                sh "az login --service-principal -u \$AZURE_CLIENT_ID -p \$AZURE_CLIENT_SECRET --tenant \$AZURE_TENANT_ID"
-                sh "az aks get-credentials --resource-group JavaAppRG3 --name JavaAksCluster --overwrite-existing"
-                sh "sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml"
-                sh 'kubectl apply -f k8s/'
+                withCredentials([usernamePassword(credentialsId: 'azure-acr-credentials', usernameVariable: 'AZ_USER', passwordVariable: 'AZ_PASS')]) {
+                    sh "az login -u ${AZ_USER} -p ${AZ_PASS} --service-principal --tenant YOUR_TENANT_ID || az login --use-device-code"
+                    sh "az aks get-credentials --resource-group JavaAppRG3 --name JavaAksCluster --overwrite-existing"
+                    sh "sed -i 's|image:.*|image: ${IMAGE_NAME}:${IMAGE_TAG}|g' k8s/deployment.yaml"
+                    sh 'kubectl apply -f k8s/'
+                }
             }
         }
-    }
     }
     
     post {

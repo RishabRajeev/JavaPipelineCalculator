@@ -1,0 +1,43 @@
+Script started on 2026-11-05 12:43:03+05:30 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="131" LINES="26"]
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git add .
+[?2004l[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git commit -m "Updated Jenkinsgile"[K[K[K[K[Kfile"
+[?2004l[main 4599987] Updated Jenkinsfile
+ 2 files changed, 7 insertions(+), 11 deletions(-)
+ create mode 100644 {
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ go[Kit push origin ka[K[Kmain
+[?2004lEnumerating objects: 6, done.
+Counting objects:  16% (1/6)Counting objects:  33% (2/6)Counting objects:  50% (3/6)Counting objects:  66% (4/6)Counting objects:  83% (5/6)Counting objects: 100% (6/6)Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects:  33% (1/3)Compressing objects:  66% (2/3)Compressing objects: 100% (3/3)Compressing objects: 100% (3/3), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 663 bytes | 663.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To https://github.com/RishabRajeev/JavaPipelineCalculator.git
+   a6e065a..4599987  main -> main
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7maz account show[27maz account show
+[?2004l{
+  "environmentName": "AzureCloud",
+  "homeTenantId": "5beb351c-3fb8-418f-b612-fe36ace96ef3",
+  "id": "d34d61a7-4496-47c9-af93-2eb6e35ea3cf",
+  "isDefault": true,
+  "managedByTenants": [],
+  "name": "Azure for Students",
+  "state": "Enabled",
+  "tenantDefaultDomain": "snuchennai.edu.in",
+  "tenantDisplayName": "Shiv Nadar University - Chennai",
+  "tenantId": "5beb351c-3fb8-418f-b612-fe36ace96ef3",
+  "user": {
+    "name": "rishab23110023@snuchennai.edu.in",
+    "type": "user"
+  }
+}
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ az account showgit push origin maincommit -m "Updated Jenkinsfile"add .[K
+[?2004l[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git add .az account showgit push origin maincommit -m "Updated Jenkinsfile"add .[Kcommit -m "Updated Jenkinsfile"2"
+[?2004l[main 5c06438] Updated Jenkinsfile2
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git commit -m "Updated Jenkinsfile2"add .[Kaz account showgit push origin main
+[?2004lEnumerating objects: 5, done.
+Counting objects:  20% (1/5)Counting objects:  40% (2/5)Counting objects:  60% (3/5)Counting objects:  80% (4/5)Counting objects: 100% (5/5)Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects:  33% (1/3)Compressing objects:  66% (2/3)Compressing objects: 100% (3/3)Compressing objects: 100% (3/3), done.
+Writing objects:  33% (1/3)Writing objects:  66% (2/3)Writing objects: 100% (3/3)Writing objects: 100% (3/3), 524 byt
