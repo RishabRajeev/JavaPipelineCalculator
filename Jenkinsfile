@@ -13,12 +13,12 @@ pipeline {
                 checkout scm
             }
         }
-        
+
         stage('Gitleaks Security Scan') {
             steps {
                 echo 'Running Gitleaks secret detection scan...'
                 sh '''
-                    gitleaks git . --verbose --exit-code 1
+                    gitleaks detect --source . --verbose --exit-code 1
                 '''
             }
         }
