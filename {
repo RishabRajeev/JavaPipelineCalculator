@@ -135,4 +135,46 @@ kube-system   metrics-server-dff79fd46-s8f7s                   2/2     Running  
 05-Nov-2026 08:33:34.961 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
 05-Nov-2026 08:33:35.002 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [989] milliseconds
 [?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mkubectl port-forward svc/java-app-service 8080:80[27mkubectl port-forward svc/java-app-service 8080:80
-[?2004lUnable to listen on port 8080: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 127.0.0.1:8080: bind: address already in use unable to create listener: Error listen tcp6 [::1]:8080: bind: addres
+[?2004lUnable to listen on port 8080: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 127.0.0.1:8080: bind: address already in use unable to create listener: Error listen tcp6 [::1]:8080: bind: address already in use]
+error: unable to listen on any of the requested ports: [{8080 8080}]
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [7mkubectl port-forward svc/java-app-service 9090:80[27mkubectl port-forward svc/java-app-service 9090:80
+[?2004lForwarding from 127.0.0.1:9090 -> 8080
+Forwarding from [::1]:9090 -> 8080
+Handling connection for 9090
+Handling connection for 9090
+Handling connection for 9090
+Handling connection for 9090
+Handling connection for 9090
+error: lost connection to pod
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git add [K.
+[?2004lgit: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+	add
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git add .
+[?2004l[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git commit -m "Testing webhook"
+[?2004lOn branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ 
+[?2004l[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git push origin main
+[?2004lEverything up-to-date
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git push origin main
+[?2004lEverything up-to-date
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [K]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ [K]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git push origin maincommit -m "Testing webhook"add .[K
+[?2004l[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git add .push origin maincommit -m "Testing webhook"2"
+[?2004l[main 71b005f] Testing webhook2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-app[01;32mrishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx[00m:[01;34m~/my-java-app[00m$ git commit -m "Testing webhook2"add .[Kpush origin main
+[?2004lEnumerating objects: 4, done.
+Counting objects:  25% (1/4)Counting objects:  50% (2/4)Counting objects:  75% (3/4)Counting objects: 100% (4/4)Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects:  50% (1/2)Compressing objects: 100% (2/2)Compressing objects: 100% (2/2), done.
+Writing objects:  33% (1/3)Writing objects:  66% (2/3)Writing objects: 100% (3/3)Writing objects: 100% (3/3), 289 bytes | 289.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/1)[Kremote: Resolving deltas: 100% (1/1)[Kremote: Resolving deltas: 100% (1/1), completed with 1 local object.[K
+To https://github.com/RishabRajeev/JavaPipelineCalculator.git
+   297c173..71b005f  main -> main
+[?2004h]0;rishab-rajeev@rishabrajeev-HP-Laptop-14-ep0xxx: ~/my-java-a

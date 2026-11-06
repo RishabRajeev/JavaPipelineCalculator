@@ -1,0 +1,352 @@
+Started by user Rishab Rajeev
+Replayed #11
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/java-calc-pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/java-calc-pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RishabRajeev/JavaPipelineCalculator.git # timeout=10
+Fetching upstream changes from https://github.com/RishabRajeev/JavaPipelineCalculator.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/RishabRajeev/JavaPipelineCalculator.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 71b005f72252877ebb721d14e4f114e120525f0f (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 71b005f72252877ebb721d14e4f114e120525f0f # timeout=10
+Commit message: "Testing webhook2"
+ > git rev-list --no-walk 71b005f72252877ebb721d14e4f114e120525f0f # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (1. Checkout Code)
+[Pipeline] checkout
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/java-calc-pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/RishabRajeev/JavaPipelineCalculator.git # timeout=10
+Fetching upstream changes from https://github.com/RishabRajeev/JavaPipelineCalculator.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/RishabRajeev/JavaPipelineCalculator.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 71b005f72252877ebb721d14e4f114e120525f0f (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 71b005f72252877ebb721d14e4f114e120525f0f # timeout=10
+Commit message: "Testing webhook2"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (2. Maven Build & Package)
+[Pipeline] sh
++ mvn clean package
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mcom.devops:java-web-app[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding java-web-app 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ war ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Deleting /var/lib/jenkins/workspace/java-calc-pipeline/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/java-calc-pipeline/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /var/lib/jenkins/workspace/java-calc-pipeline/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/java-calc-pipeline/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /var/lib/jenkins/workspace/java-calc-pipeline/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.2.5:test[m [1m(default-test)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running com.devops.app.[1mAppTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in com.devops.app.[1mAppTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 5, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-war-plugin:3.4.0:war[m [1m(default-war)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Packaging webapp
+[[1;34mINFO[m] Assembling webapp [java-web-app] in [/var/lib/jenkins/workspace/java-calc-pipeline/target/java-web-app]
+[[1;34mINFO[m] Processing war project
+[[1;34mINFO[m] Copying webapp resources [/var/lib/jenkins/workspace/java-calc-pipeline/src/main/webapp]
+[[1;34mINFO[m] Building war: /var/lib/jenkins/workspace/java-calc-pipeline/target/java-web-app.war
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.659 s
+[[1;34mINFO[m] Finished at: 2026-11-06T05:11:32+05:30
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (3. Run Unit Tests)
+[Pipeline] sh
++ mvn test
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mcom.devops:java-web-app[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding java-web-app 1.0-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ war ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/java-calc-pipeline/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/java-calc-pipeline/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.2.5:test[m [1m(default-test)[m @ [36mjava-web-app[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running com.devops.app.[1mAppTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in com.devops.app.[1mAppTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 5, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  1.631 s
+[[1;34mINFO[m] Finished at: 2026-11-06T05:11:34+05:30
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (4. Build Docker Image)
+[Pipeline] sh
++ docker build -t rishabjavaapp123.azurecr.io/java-web-app:12 -t rishabjavaapp123.azurecr.io/java-web-app:latest .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  38.91kB
+Step 1/9 : FROM maven:3.9.6-eclipse-temurin-17 AS build
+ ---> 29a1658b1f30
+Step 2/9 : WORKDIR /app
+ ---> Using cache
+ ---> c64aeb1f36c4
+Step 3/9 : COPY . .
+ ---> Using cache
+ ---> f6be5a9178cb
+Step 4/9 : RUN mvn clean package -DskipTests=false
+ ---> Using cache
+ ---> 10c3dd97ff12
+Step 5/9 : FROM tomcat:10.1-jdk17
+ ---> b529342a7252
+Step 6/9 : RUN rm -rf /usr/local/tomcat/webapps/*
+ ---> Using cache
+ ---> 5d2f7359dba4
+Step 7/9 : COPY --from=build /app/target/java-web-app.war /usr/local/tomcat/webapps/ROOT.war
+ ---> Using cache
+ ---> 6f0fdbc1ce46
+Step 8/9 : EXPOSE 8080
+ ---> Using cache
+ ---> 1f1069c62f93
+Step 9/9 : CMD ["catalina.sh", "run"]
+ ---> Using cache
+ ---> b95bc925aba7
+Successfully built b95bc925aba7
+Successfully tagged rishabjavaapp123.azurecr.io/java-web-app:12
+Successfully tagged rishabjavaapp123.azurecr.io/java-web-app:latest
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (5. Push to Azure Container Registry)
+[Pipeline] withCredentials
+Masking supported pattern matches of $ACR_PASS
+[Pipeline] {
+[Pipeline] sh
+Warning: A secret was passed to "sh" using Groovy String interpolation, which is insecure.
+		 Affected argument(s) used the following variable(s): [ACR_PASS]
+		 See https://jenkins.io/redirect/groovy-string-interpolation for details.
++ echo ****
++ docker login rishabjavaapp123.azurecr.io -u rishabjavaapp123 --password-stdin
+Login Succeeded
+[Pipeline] sh
++ docker push rishabjavaapp123.azurecr.io/java-web-app:12
+The push refers to repository [rishabjavaapp123.azurecr.io/java-web-app]
+7acbd1480041: Waiting
+edafa32f5d9e: Waiting
+2450de5c5c0f: Waiting
+2f1b29560452: Waiting
+26b4647d2607: Waiting
+b1ceafd0cf50: Waiting
+8b32b42269f9: Waiting
+f3f25b84a7d7: Waiting
+4f4fb700ef54: Waiting
+f01d9a614012: Waiting
+7acbd1480041: Waiting
+edafa32f5d9e: Waiting
+2450de5c5c0f: Waiting
+2f1b29560452: Waiting
+26b4647d2607: Waiting
+b1ceafd0cf50: Waiting
+8b32b42269f9: Waiting
+f3f25b84a7d7: Waiting
+4f4fb700ef54: Waiting
+f01d9a614012: Waiting
+b1ceafd0cf50: Waiting
+8b32b42269f9: Waiting
+f3f25b84a7d7: Waiting
+4f4fb700ef54: Waiting
+f01d9a614012: Waiting
+7acbd1480041: Waiting
+edafa32f5d9e: Waiting
+2450de5c5c0f: Waiting
+2f1b29560452: Waiting
+26b4647d2607: Waiting
+b1ceafd0cf50: Layer already exists
+8b32b42269f9: Layer already exists
+f3f25b84a7d7: Waiting
+4f4fb700ef54: Waiting
+f01d9a614012: Waiting
+7acbd1480041: Waiting
+edafa32f5d9e: Waiting
+2450de5c5c0f: Waiting
+2f1b29560452: Waiting
+26b4647d2607: Waiting
+26b4647d2607: Layer already exists
+f3f25b84a7d7: Layer already exists
+4f4fb700ef54: Layer already exists
+f01d9a614012: Layer already exists
+7acbd1480041: Layer already exists
+edafa32f5d9e: Layer already exists
+2450de5c5c0f: Layer already exists
+2f1b29560452: Layer already exists
+12: digest: sha256:b95bc925aba74a4a2c4d2056df80cbb4eecb32cc8d775bee780f5e9faf6ea79a size: 2695
+[Pipeline] sh
++ docker push rishabjavaapp123.azurecr.io/java-web-app:latest
+The push refers to repository [rishabjavaapp123.azurecr.io/java-web-app]
+2f1b29560452: Waiting
+f3f25b84a7d7: Waiting
+7acbd1480041: Waiting
+edafa32f5d9e: Waiting
+f01d9a614012: Waiting
+4f4fb700ef54: Waiting
+26b4647d2607: Waiting
+b1ceafd0cf50: Waiting
+8b32b42269f9: Waiting
+2450de5c5c0f: Waiting
+edafa32f5d9e: Waiting
+f01d9a614012: Waiting
+4f4fb700ef54: Waiting
+26b4647d2607: Waiting
+b1ceafd0cf50: Waiting
+8b32b42269f9: Waiting
+2450de5c5c0f: Waiting
+2f1b29560452: Waiting
+f3f25b84a7d7: Waiting
+7acbd1480041: Waiting
+edafa32f5d9e: Layer already exists
+f01d9a614012: Layer already exists
+4f4fb700ef54: Layer already exists
+26b4647d2607: Layer already exists
+b1ceafd0cf50: Layer already exists
+8b32b42269f9: Layer already exists
+2450de5c5c0f: Layer already exists
+2f1b29560452: Layer already exists
+f3f25b84a7d7: Layer already exists
+7acbd1480041: Layer already exists
+latest: digest: sha256:b95bc925aba74a4a2c4d2056df80cbb4eecb32cc8d775bee780f5e9faf6ea79a size: 2695
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (6. Deploy to Azure AKS via Ansible)
+[Pipeline] withCredentials
+Masking supported pattern matches of $AZ_PASS
+[Pipeline] {
+[Pipeline] sh
++ export LANG=C.UTF-8
++ export LC_ALL=C.UTF-8
++ az aks get-credentials --resource-group JavaAppRG3 --name JavaAksCluster --overwrite-existing
+WARNING: Merged "JavaAksCluster" as current context in /var/lib/jenkins/.kube/config
++ sed -i s|image:.*|image: rishabjavaapp123.azurecr.io/java-web-app:12|g k8s/deployment.yaml
++ ansible-playbook playbook.yml
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+PLAY [Deploy Java Application to Kubernetes Cluster] ***************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Ensure Kubernetes manifests directory exists] ****************************
+ok: [localhost]
+
+TASK [Apply Kubernetes Deployment and Service] *********************************
+changed: [localhost]
+
+TASK [Verify Kubernetes pods are running] **************************************
+ok: [localhost]
+
+TASK [Display Pod Status] ******************************************************
+ok: [localhost] => {
+    "msg": []
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Pipeline successfully executed, calculator app deployed to Azure AKS!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
