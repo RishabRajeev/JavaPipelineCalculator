@@ -14,6 +14,15 @@ pipeline {
             }
         }
         
+        stage('Gitleaks Security Scan') {
+            steps {
+                echo 'Running Gitleaks secret detection scan...'
+                sh '''
+                    gitleaks git . --verbose --exit-code 1
+                '''
+            }
+        }
+
         stage('2. Maven Build & Package') {
             steps {
                 sh 'mvn clean package'
@@ -30,7 +39,6 @@ pipeline {
                 }
             }
         }
-        
         stage('4. Build Docker Image') {
             steps {
                 sh "docker build -t ${IMAGE_NAME}:${IMAGE_TAG} -t ${IMAGE_NAME}:latest ."
