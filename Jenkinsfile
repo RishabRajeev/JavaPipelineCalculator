@@ -69,6 +69,9 @@ pipeline {
                         echo "Waiting for inner Docker daemon to initialize..."
                         sleep 5
 
+                        echo "Logging into ACR inside the inner Docker daemon..."
+                        docker exec parent-build-container sh -c "echo '${ACR_PASS}' | docker login ${ACR_REGISTRY} -u '${ACR_USER}' --password-stdin"
+
                         echo "Launching child container inside the parent container..."
                         docker exec parent-build-container docker run -d --name child-app-container \
                         -p 8090:8080 \
