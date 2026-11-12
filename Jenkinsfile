@@ -54,22 +54,27 @@ pipeline {
                 }
             }
         }
-        stage('Deploy Parent & Child Containers') {
+        stage('Deploy Parent & Child Containers (True DinD)') {
             steps {
-                sh '''
-                    echo "Cleaning up previous build containers..."
-                    docker rm -f parent-build-container child-app-container || true
+                script {
+                    sh '''
+                        echo "Cleaning up existing containers..."
+                        docker rm -f parent-build-container child-app-container || true
 
-                    echo "Starting Parent Container..."
-                    docker run -d --name parent-build-container \
-                      -v /var/run/docker.sock:/var/run/docker.sock \
-                      ${IMAGE_NAME}:${IMAGE_TAG}
+                        echo "Starting true DinD parent container..."
+                        docker run -d --name parent-build-container \
+                        --privileged \
+                        docker:dind
 
-                    echo "Starting Child Container..."
-                    docker run -d --name child-app-container \
-                      -p 8090:8080 \
-                      ${IMAGE_NAME}:${IMAGE_TAG}
-                '''
+                        echo "Waiting for inner Docker daemon to initialize..."
+                        sleep 5
+
+                        echo "Launching child container inside the parent container..."
+                        docker exec parent-build-container docker run -d --name child-app-container \
+                        -p 8090:8080 \
+                        ${IMAGE_NAME}:${IMAGE_TAG}
+                    '''
+                }
             }
         }
         stage('6. Deploy to Azure AKS via Ansible') {
