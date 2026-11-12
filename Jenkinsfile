@@ -54,7 +54,24 @@ pipeline {
                 }
             }
         }
-        
+        stage('Deploy Parent & Child Containers') {
+            steps {
+                sh '''
+                    echo "Cleaning up previous build containers..."
+                    docker rm -f parent-build-container child-app-container || true
+
+                    echo "Starting Parent Container..."
+                    docker run -d --name parent-build-container \
+                      -v /var/run/docker.sock:/var/run/docker.sock \
+                      ${IMAGE_NAME}:${IMAGE_TAG}
+
+                    echo "Starting Child Container..."
+                    docker run -d --name child-app-container \
+                      -p 8090:8080 \
+                      ${IMAGE_NAME}:${IMAGE_TAG}
+                '''
+            }
+        }
         stage('6. Deploy to Azure AKS via Ansible') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'azure-acr-credentials', usernameVariable: 'AZ_USER', passwordVariable: 'AZ_PASS')]) {
