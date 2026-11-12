@@ -56,26 +56,20 @@ pipeline {
         }
         stage('Deploy Parent & Child Containers (True DinD)') {
             steps {
-                script {
+                withCredentials([usernamePassword(credentialsId: 'azure-acr-credentials', usernameVariable: 'ACR_USER', passwordVariable: 'ACR_PASS')]) {
                     sh '''
-                        echo "Cleaning up existing containers..."
-                        docker rm -f parent-build-container child-app-container || true
+                        docker rm -f parent-build-container || true
 
-                        echo "Starting true DinD parent container..."
-                        docker run -d --name parent-build-container \
-                        --privileged \
-                        docker:dind
+                        docker run -d --name parent-build-container --privileged docker:dind
 
-                        echo "Waiting for inner Docker daemon to initialize..."
-                        sleep 5
+                        echo "Waiting for inner Docker daemon..."
+                        until docker exec parent-build-container docker info >/dev/null 2>&1; do sleep 2; done
 
-                        echo "Logging into ACR inside the inner Docker daemon..."
-                        docker exec parent-build-container sh -c "echo '${ACR_PASS}' | docker login ${ACR_REGISTRY} -u '${ACR_USER}' --password-stdin"
+                        docker exec -e ACR_USER -e ACR_PASS -e ACR_REGISTRY parent-build-container \
+                          sh -c 'echo "$ACR_PASS" | docker login "$ACR_REGISTRY" -u "$ACR_USER" --password-stdin'
 
-                        echo "Launching child container inside the parent container..."
                         docker exec parent-build-container docker run -d --name child-app-container \
-                        -p 8090:8080 \
-                        ${IMAGE_NAME}:${IMAGE_TAG}
+                          -p 8090:8080 ${IMAGE_NAME}:${IMAGE_TAG}
                     '''
                 }
             }
